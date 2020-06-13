@@ -14,4 +14,9 @@ export class LoginTableService {
     let url = 'https://reqres.in/api/users?page=1';
     return this.http.get(url);
   }
+
+  getUserDetail(id){
+    let url = 'https://reqres.in/api/users/' + id;
+    return this.http.get(url)
+  }
 }
