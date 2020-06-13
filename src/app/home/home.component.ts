@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LoginTableService } from '../services/login-table.service'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  id : number;
+  emailId : string;
+  firstName : string;
+  lastName : string;
+  imagePath :any;
+  userData :any;
+  constructor(private loginService : LoginTableService) {
+
+   }
 
   ngOnInit() {
+    this.getUsers()
+  }
 
+  getUsers() {
+    this.loginService.getUsers().subscribe(user=>{
+  
+      this.userData = user['data']
+      alert(JSON.stringify(this.userData));
+    })
   }
 
 }
