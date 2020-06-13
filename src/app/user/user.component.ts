@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LoginTableService } from '../services/login-table.service'
 @Component({
   selector: 'app-user',
@@ -6,17 +6,23 @@ import { LoginTableService } from '../services/login-table.service'
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  constructor(private userService:LoginTableService) { }
-
+  userID :any;
   allData :any;
   adData :any;
+  constructor(private userService:LoginTableService) {
+    debugger;
+    this.userService.activeID.subscribe(id=>{
+      this.userID = id;
+      this.fetchData(this.userID);
+    });
+   }
+
   ngOnInit() {
-      this.fetchData();
+   
   }
 
-  fetchData() {
-    this.userService.getUserDetail(1).subscribe(data=>{
+  fetchData(id) {
+    this.userService.getUserDetail(id).subscribe(data=>{
       this.allData = data['data'];
       this.adData = data['ad']
     })

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginTableService {
-
+  activeID = new Subject<any>();
   constructor(private http: HttpClient) { 
 
   }
@@ -15,8 +15,10 @@ export class LoginTableService {
     return this.http.get(url);
   }
 
-  getUserDetail(id){
-    let url = 'https://reqres.in/api/users/' + id;
+  getUserDetail(userid){
+    debugger;
+    let url = 'https://reqres.in/api/users/' + userid;
+    console.log('URL IS ' + url)
     return this.http.get(url)
   }
 }

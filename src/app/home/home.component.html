@@ -14,7 +14,7 @@
           <div class="mainflip flip-0">
             <div class="frontside">
               <div class="card">
-                <div class="card-body text-center">
+                <div class="card-body text-center" (click)="sendID(item.id)">
                   <p><img class=" img-fluid" src="{{item.avatar}}" alt="card image"></p>
                   <h4 class="card-title"> {{item.first_name}} {{item.last_name}}</h4>
                   <p class="card-text">{{item.email}}</p>
