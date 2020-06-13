@@ -23,9 +23,7 @@ export class HomeComponent implements OnInit {
 
   getUsers() {
     this.loginService.getUsers().subscribe(user=>{
-  
       this.userData = user['data']
-      alert(JSON.stringify(this.userData));
     })
   }
 
