@@ -13,14 +13,14 @@
 
     <!-- Login Form -->
     <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In" (click)="login()">
+      <input type="text" id="login" class="fadeIn second" name="userName" placeholder="username" #userName>
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" #password>
+      <input type="submit" class="fadeIn fourth" value="Log In" (click)="login(userName.value, password.value)">
     </form>
 
     <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+    <div id="formFooter" *ngIf="wrongCredentials">
+      <p class="text-danger">Wrong username or password</p>
     </div>
 
   </div>
