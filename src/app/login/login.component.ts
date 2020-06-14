@@ -14,20 +14,12 @@ export class LoginComponent implements OnInit {
   }
 
   login(userName, password) {
-    // if(userName == 'eve.holt@reqres.in' && password == 'cityslicka') {
-    //   this.wrongCredentials = false;
-    //   this.router.navigate(['/home']);
-    // } else {
-    //   this.wrongCredentials = true;
-    // }
-    // remove this
-    if(userName == 'jeet' && password == '123') {
+    if(userName == 'eve.holt@reqres.in' && password == 'cityslicka') {
       this.wrongCredentials = false;
       this.router.navigate(['/home']);
     } else {
       this.wrongCredentials = true;
     }
-    
   }
 
 }

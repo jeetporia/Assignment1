@@ -1,7 +1,8 @@
 
 <!------ Include the above in your HEAD tag ---------->
-<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
-<div class="wrapper fadeInDown">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+<div class="wrapper fadeInDown mt-5">
   <div id="formContent">
     <!-- Tabs Titles -->
 
@@ -13,9 +14,9 @@
 
     <!-- Login Form -->
     <form>
-      <input type="text" id="login" class="fadeIn second" name="userName" placeholder="username" #userName>
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" #password>
-      <input type="submit" class="fadeIn fourth" value="Log In" (click)="login(userName.value, password.value)">
+      <input type="email" id="login" class="fadeIn second form-control mt-3" name="userName" placeholder="username" #userName>
+      <input type="password" id="password" class="fadeIn third form-control mt-3" name="password" placeholder="password" #password>
+      <input type="submit" class="fadeIn fourth mt-5" value="Log In" (click)="login(userName.value, password.value)">
     </form>
 
     <!-- Remind Passowrd -->
