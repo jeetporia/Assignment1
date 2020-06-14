@@ -10,15 +10,15 @@ export class UserComponent implements OnInit {
   allData :any;
   adData :any;
   constructor(private userService:LoginTableService) {
-    debugger;
-    this.userService.activeID.subscribe(id=>{
-      this.userID = id;
-      this.fetchData(this.userID);
-    });
+
+   
    }
 
   ngOnInit() {
-   
+    this.userService.currentID.subscribe(gotID=> {
+      this.userID = gotID;
+    })
+    this.fetchData(this.userID)
   }
 
   fetchData(id) {

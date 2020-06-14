@@ -1,13 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginTableService {
-  activeID = new Subject<any>();
+
+  private id = new BehaviorSubject<string>('');
+  currentID = this.id.asObservable();
+
   constructor(private http: HttpClient) { 
 
+  }
+
+  changeId(id : string) {
+    this.id.next(id);
   }
 
   getUsers() {
@@ -16,7 +24,6 @@ export class LoginTableService {
   }
 
   getUserDetail(userid){
-    debugger;
     let url = 'https://reqres.in/api/users/' + userid;
     console.log('URL IS ' + url)
     return this.http.get(url)

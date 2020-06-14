@@ -24,8 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   sendID(id) {
-    debugger;
-    this.loginService.activeID.next(id);
+    this.loginService.changeId(id)
     this.router.navigate(['/user']);
   }
 
